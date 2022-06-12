@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using UserManagement.Domain;
 using UserManagement.Domain.Core;
@@ -53,11 +54,24 @@ namespace UsserManagement.DataAccessLayer.Repositories
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public async Task<User> FindByIdAsync(long id)
+        public async Task<User> FindByIdAsync(long id, CancellationToken cancellationToken)
         {
             return await this.context.Users
                 .Where(e => e.Id == id)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(cancellationToken);
+        }
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<bool> ExistsByNameAsync(string username, CancellationToken cancellationToken)
+        {
+            return await this.context.Users
+                .Where(e => e.Username == username)
+                .AnyAsync(cancellationToken);
         }
     }
 }

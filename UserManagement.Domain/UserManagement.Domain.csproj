@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <EmbeddedResource Update="UserManagementMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>UserManagementMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

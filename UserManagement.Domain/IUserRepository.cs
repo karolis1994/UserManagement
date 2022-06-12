@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using UserManagement.Domain.Core;
 
 namespace UserManagement.Domain
@@ -31,6 +32,14 @@ namespace UserManagement.Domain
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        Task<User> FindByIdAsync(long id);
+        Task<User> FindByIdAsync(long id, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Checks if user exists by such name
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task<bool> ExistsByNameAsync(string name, CancellationToken cancellationToken);
     }
 }
