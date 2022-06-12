@@ -11,7 +11,7 @@ using UserManagement.Domain;
 using UsserManagement.DataAccessLayer.Repositories;
 using UsserManagement.Infrastructure;
 
-namespace UserManagement
+namespace UserManagement.API
 {
     public class Startup
     {

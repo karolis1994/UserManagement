@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.API", "UserManagement\UserManagement.API.csproj", "{1BF9DF43-5957-4E03-B978-784FF9D7823C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.API", "UserManagement.API\UserManagement.API.csproj", "{1BF9DF43-5957-4E03-B978-784FF9D7823C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.Domain", "UserManagement.Domain\UserManagement.Domain.csproj", "{B169F638-E5DB-444E-8D02-9E18FB078A08}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B696271E-207E-4EA9-A8E6-9FA1D2632539}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Domain.UnitTests", "UserManagement.Domain.UnitTests\UserManagement.Domain.UnitTests.csproj", "{79C13CB7-15A8-44CB-B52E-6DFE5E1B5D15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.API.IntegrationTests", "UserManagement.API.IntegrationTests\UserManagement.API.IntegrationTests.csproj", "{E6A8F48A-6F5F-48A5-883C-D681EFB1CB0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,12 +37,17 @@ Global
 		{79C13CB7-15A8-44CB-B52E-6DFE5E1B5D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79C13CB7-15A8-44CB-B52E-6DFE5E1B5D15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79C13CB7-15A8-44CB-B52E-6DFE5E1B5D15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A8F48A-6F5F-48A5-883C-D681EFB1CB0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A8F48A-6F5F-48A5-883C-D681EFB1CB0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A8F48A-6F5F-48A5-883C-D681EFB1CB0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A8F48A-6F5F-48A5-883C-D681EFB1CB0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{79C13CB7-15A8-44CB-B52E-6DFE5E1B5D15} = {B696271E-207E-4EA9-A8E6-9FA1D2632539}
+		{E6A8F48A-6F5F-48A5-883C-D681EFB1CB0A} = {B696271E-207E-4EA9-A8E6-9FA1D2632539}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DF7D64D-DC96-40E7-B5F5-3358CD4F1BFA}

@@ -23,6 +23,7 @@ namespace UserManagement.API.Commands
         /// Email
         /// </summary>
         [StringLength(120)]
+        [EmailAddress]
         public string Email { get; set; }
 
         /// <summary>
