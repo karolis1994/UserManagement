@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UserManagement.Domain
+﻿namespace UserManagement.Domain.Core
 {
     /// <summary>
     /// Base of an entity

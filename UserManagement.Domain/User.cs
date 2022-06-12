@@ -1,12 +1,13 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using UserManagement.Domain.Core;
 
 namespace UserManagement.Domain
 {
     /// <summary>
     /// User
     /// </summary>
-    public class User : Entity
+    public class User : Entity, IAggregateRoot
     {
         /// <summary>
         /// Username

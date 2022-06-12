@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UserManagement.Domain;
+using UserManagement.Domain.Core;
 using UsserManagement.Infrastructure.EntityTypeConfiguration;
 
 namespace UsserManagement.Infrastructure
 {
-    public class UserManagementContext : DbContext
+    public class UserManagementContext : DbContext, IUnitOfWork
     {
         public const string SchemaName = "UserManagement";
 

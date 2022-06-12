@@ -1,16 +1,14 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
+using UserManagement.Domain;
+using UsserManagement.DataAccessLayer.Repositories;
 using UsserManagement.Infrastructure;
 
 namespace UserManagement
@@ -35,6 +33,7 @@ namespace UserManagement
             });
 
             ConfigureDatabase(services, Configuration);
+            ConfigureUserManagerServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +54,12 @@ namespace UserManagement
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void ConfigureUserManagerServices(IServiceCollection services)
+        {
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddMediatR(Assembly.GetExecutingAssembly());
         }
 
         private void ConfigureDatabase(IServiceCollection services, IConfiguration config)
