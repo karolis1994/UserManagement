@@ -1,17 +1,23 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace UserManagement.Domain
 {
+    /// <summary>
+    /// User
+    /// </summary>
     public class User : Entity
     {
         /// <summary>
         /// Username
         /// </summary>
+        [StringLength(50)]
         public string Username { get; private set; }
 
         /// <summary>
         /// Password
         /// </summary>
+        [StringLength(1000)]
         public string Password { get; private set; }
 
         /// <summary>
@@ -22,7 +28,8 @@ namespace UserManagement.Domain
         /// <summary>
         /// Email
         /// </summary>
-        public string Email { get; private set; }
+        [StringLength(120)]
+        public string? Email { get; private set; }
 
         /// <summary>
         /// Time when user was created in UTC
@@ -35,7 +42,7 @@ namespace UserManagement.Domain
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static User CreateNew(string username, string password)
+        public static User CreateNew(string username, string password, string? email)
         {
             var salt = SaltGenerator.Generate();
             var hashedPassword = PasswordHasher.Hash(password, salt);
@@ -44,7 +51,8 @@ namespace UserManagement.Domain
             {
                 Salt = salt,
                 Password = hashedPassword,
-                Username = username
+                Username = username,
+                Email = email
             };
         }
 
@@ -52,7 +60,7 @@ namespace UserManagement.Domain
         /// Updates user information
         /// </summary>
         /// <param name="email"></param>
-        public void UpdateData(string email)
+        public void UpdateData(string? email)
         {
             this.Email = email;
         }

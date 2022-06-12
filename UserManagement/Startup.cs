@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UsserManagement.Infrastructure;
 
 namespace UserManagement
 {
@@ -31,6 +33,8 @@ namespace UserManagement
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "UserManagement", Version = "v1" });
             });
+
+            ConfigureDatabase(services, Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +55,13 @@ namespace UserManagement
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private void ConfigureDatabase(IServiceCollection services, IConfiguration config)
+        {
+            var connectionString = config.GetConnectionString("UserManagement");
+
+            services.AddDbContext<UserManagementContext>(options => options.UseNpgsql(connectionString));
         }
     }
 }
